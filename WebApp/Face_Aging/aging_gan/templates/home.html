@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>Face Aging</title>
+</head>
+<body>
+    {% load static %}
+    <h1 id="title1">Face Aging </h1>
+    <H1 id="title2"></H1>
+
+    <div id="inputs"> 
+
+    <form id="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p style="color: #1a498f;">Reference Person</p>
+        <input type="file" name="sentFile1" />
+
+        <input type="submit" name="submit" value="Upload" />
+    </form>
+
+    {% if condition_met %}
+    <div class="image-container1" >
+        <div >
+            <h1 style="color: #1a498f;">Input Images</h1>
+            <!--<img src="{% static 'data/latest.jpg' %}" alt="Image" style="width:18vw; height:30vh;">-->
+            <img src="{% static 'result/output_img.png' %}" alt="Image" style="width:50vw; height:50vh;">
+        </div>
+    </div>
+    {% else %}
+    <p>No images to display.</p>
+    {% endif %}
+
+    
+   
+
+
+</body>
+</html>
